@@ -20,7 +20,9 @@ const removeUser = (socketId) => {
 const getUser = (username) => {
   return onlineUsers.find((user) => user.username === username);
 };
-
+// to send to client an event in socket io we using a io.to().emit()
+//to recive an event rom a server in io we use socket.on()
+//the name of events must be tybical
 io.on("connection", (socket) => {
   socket.on("newUser", (username) => {
     addNewUser(username, socket.id);
